@@ -1,0 +1,143 @@
+body {
+    background: var(--black);
+}
+
+
+header {
+    display: flex;
+    justify-content: center;
+    padding: 30px 0;
+    flex-direction: column;
+    align-items: center;
+}
+
+header p {
+    color: var(--white);
+    font-family: "gta";
+    font-size: 80px;
+}
+
+main {
+    display: flex;
+    padding: 10px;
+    gap: 10px;
+    align-items: flex-start;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--grey);
+    border-radius: 5vh;
+    padding: 10px;
+}
+
+.card-title {
+    text-align: center;
+    font-family: gta;
+    font-size: 60px;
+    color: var(--yellow);
+}
+
+.card-table {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px;
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.item-title {
+    font-family: title;
+    font-size: 20px;
+    padding-left: 20px;
+    color: var(--grey);
+}
+
+.item-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.item-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr 6fr 5fr;
+    align-items: center;
+    padding: 0 5px;
+    min-height: 48px;
+    background: var(--dark);
+}
+
+.item-content:hover {
+    background: var(--yellow);
+}
+
+.item-content:hover .item-text,
+.item-content:hover .item-subtext {
+    color: var(--white);
+}
+
+.checkbox {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--yellow);
+    border-radius: 4px;
+    cursor: pointer;
+    position: relative;
+    margin-left: 10px;
+    background: var(--dark);
+}
+
+.checkbox.checked::after {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 0px;
+    width: 10px;
+    height: 16px;
+    border: solid var(--white);
+    border-width: 0 4px 4px 0;
+    transform: rotate(45deg);
+}
+
+.checkbox.checked {
+    border: none;
+    background: var(--yellow);
+}
+
+.checkbox.checked~.item-text,
+.checkbox.checked~.item-subtext {
+    text-decoration: line-through;
+    color: var(--grey);
+}
+
+.checkbox.checked~.item-img {
+    opacity: 0.2; 
+}
+
+.item-img {
+    width: 30px;
+    height: 30px;
+}
+
+.item-text {
+    color: var(--yellow);
+    font-size: 20px;
+}
+
+.item-subtext {
+    color: var(--yellow);
+}
