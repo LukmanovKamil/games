@@ -1,0 +1,46 @@
+@font-face {
+    font-family: "games";
+    src: url("./fonts/games.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "title";
+    src: url("./fonts/title.woff2") format("woff2");
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "subtitle";
+    src: url("./fonts/subtitle.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "text";
+    src: url("./fonts/subtitle.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+}
+
+:root {
+    --fon: #000000;
+    --header: #ffffff;
+    --rows: #1a1a1a;
+    --text: #eca000;
+    --textalt: #888888;
+    --texthover: #ffffff;
+}
+
+.page2-content {
+    grid-template-columns: 30px 60px 1fr 2fr 1fr;
+}
+
+@media (max-width: 768px) {
+.page2-content {
+    grid-template-columns: 30px 60px 1fr 1fr;
+}
+}

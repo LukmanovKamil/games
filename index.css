@@ -1,0 +1,156 @@
+@font-face {
+    font-family: "TTNorms";
+    src: url("./fonts/TTNorms-Light.woff2") format("woff2");
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "TTNorms";
+    src: url("./fonts/TTNorms-Bold.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+}
+
+:root {
+    --black: #000000;
+    --white: #ffffff;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "TTNorms";
+    text-decoration: none;
+}
+
+body {
+    background: linear-gradient(225deg, #02394e 0%, #061324 100%);
+    min-height: 100vh;
+}
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.titles {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 50px 0 100px;
+}
+
+.subtitle {
+    font-weight: 300;
+    color: #ffffff;
+    font-size: 40px;
+}
+
+.title {
+    font-weight: 700;
+    font-size: 150px;
+    color: transparent;
+    -webkit-text-stroke: 2px #ffffff;
+    text-shadow:
+        0 0 10px #ffffff,
+        0 0 100px #05ebf3;
+}
+
+.games {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 100%;
+}
+
+.card {
+    background: rgba(0, 0, 0, 0.50);
+    height: 200px;
+    width: 500px;
+    border: 1px solid var(--white);
+    border-radius: 5vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    transition: 0.3s ease;
+}
+
+.card:hover {
+    box-shadow:
+        0 -5px 40px 0 #ffffff,
+        0 5px 40px 0 #05ebf3;
+}
+
+.img {
+    display: flex;
+    flex: 45%;
+    justify-content: center;
+}
+
+img {
+    width: 130px;
+}
+
+.titles-card {
+    display: flex;
+    flex: 55%;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.subtitle-card {
+    font-weight: 300;
+    color: #ffffff;
+    font-size: 15px;
+}
+
+.title-card {
+    font-weight: 700;
+    color: #ffffff;
+    font-size: 24px;
+}
+
+
+@media (max-width: 768px) {
+    .titles {
+        padding: 20px 0 30px;
+    }
+
+    .subtitle {
+        font-size: 30px;
+    }
+
+    .title {
+        font-size: 100px;
+    }
+
+    .games {
+        padding: 0 5px 20px;
+    }
+
+    .card {
+        height: 120px;
+        width: 450px;
+    }
+
+    img {
+        width: 80px;
+    }
+
+    .subtitle-card {
+        font-size: 13px;
+    }
+
+    .title-card {
+        font-size: 18px;
+    }
+}

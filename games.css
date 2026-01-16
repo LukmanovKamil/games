@@ -1,0 +1,672 @@
+@font-face {
+    font-family: "TTNorms";
+    src: url("./fonts/TTNorms-Light.woff2") format("woff2");
+    font-weight: 300;
+    font-style: normal;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "text";
+    text-decoration: none;
+}
+
+body {
+    background: var(--fon);
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    padding: 40px 0 20px;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.brand {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img img {
+    width: 150px;
+}
+
+.titles {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.subtitle {
+    font-family: "TTNorms";
+    color: var(--header);
+    font-size: 34px;
+}
+
+.title {
+    font-family: "games";
+    color: var(--header);
+    font-size: 80px;
+}
+
+.global-percent {
+    font-family: "games";
+    color: var(--header);
+    font-size: 80px;
+}
+
+.buttons {
+    display: flex;
+    gap: 30px;
+}
+
+.btn {
+    color: var(--textalt);
+    font-size: 40px;
+    font-family: "games";
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    color: var(--text);
+}
+
+.btn.active {
+    color: var(--text);
+    text-decoration: underline;
+}
+
+main {
+    padding: 20px 10px 40px;
+}
+
+.page {
+    display: none;
+    gap: 10px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.page.active {
+    display: flex;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--textalt);
+    border-radius: 5vh;
+    padding: 10px;
+    overflow: hidden;
+}
+
+.card-title,
+.card-percent {
+    text-align: center;
+    font-family: "title";
+    font-size: 40px;
+    color: var(--text);
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.card-table {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+}
+
+.card-table.hidden {
+    display: none;
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.item-title {
+    font-family: "subtitle";
+    font-size: 20px;
+    padding-left: 20px;
+    color: var(--textalt);
+}
+
+.item-list {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.item-content {
+    display: grid;
+    grid-template-columns: 30px 30px 1fr 1fr;
+    align-items: center;
+    padding: 0 5px;
+    min-height: 40px;
+    background: var(--rows);
+    border-radius: 2vh;
+    gap: 5px;
+}
+
+.item-content:hover {
+    background: var(--text);
+}
+
+.item-content:hover .item-text,
+.item-content:hover .item-subtext,
+.item-content:hover .number {
+    color: var(--texthover);
+}
+
+.checkbox {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--text);
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+    justify-self: center;
+    background: var(--rows);
+}
+
+.checkbox.checked::after {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 0px;
+    width: 10px;
+    height: 16px;
+    border: solid var(--texthover);
+    border-width: 0 4px 4px 0;
+    transform: rotate(45deg);
+}
+
+.checkbox.checked {
+    border: none;
+    background: var(--text);
+}
+
+.item.one:has(.checkbox.checked) .checkbox:not(.checked) {
+    visibility: hidden;
+}
+
+.item-icon {
+    width: 30px;
+    justify-self: center;
+}
+
+.checkbox.checked~.item-icon,
+.item.one:has(.checkbox.checked) .item-content .item-icon {
+    opacity: 0.5;
+    width: 20px;
+}
+
+.item-text {
+    color: var(--text);
+    font-size: 20px;
+}
+
+.checkbox.checked~.item-text,
+.item.one:has(.checkbox.checked) .item-content .item-text {
+    text-decoration: line-through;
+    color: var(--textalt);
+    font-size: 16px;
+    opacity: 0.5;
+}
+
+.item-content:hover:has(.checkbox.checked) .item-text {
+    color: var(--texthover);
+}
+
+.item-subtext {
+    color: var(--text);
+    text-align: center;
+    font-size: 16px;
+}
+
+.checkbox.checked~.item-subtext,
+.item.one:has(.checkbox.checked) .item-content .item-subtext {
+    text-decoration: line-through;
+    color: var(--textalt);
+    font-size: 12px;
+    opacity: 0.5;
+}
+
+.item-content:hover:has(.checkbox.checked) .item-subtext {
+    color: var(--texthover);
+}
+
+.number {
+    font-family: "TTNorms";
+    color: var(--text);
+    font-size: 30px;
+    justify-self: center;
+}
+
+.checkbox.checked~.number {
+    text-decoration: line-through;
+    color: var(--textalt);
+    font-size: 20px;
+    opacity: 0.5;
+}
+
+.item-content:hover:has(.checkbox.checked) .number {
+    color: var(--texthover);
+}
+
+.imgs {
+    display: flex;
+    gap: 10px;
+    justify-self: center;
+    padding: 5px 0;
+}
+
+.checkbox.checked~.imgs {
+    display: none;
+}
+
+.item-img,
+.item-map {
+    height: 50px;
+    width: 90px;
+    border: 1px solid var(--text);
+    cursor: pointer;
+    border-radius: 5px;
+    overflow: hidden;
+    display: inline-block;
+    position: relative;
+}
+
+#fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.9);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+#fullscreen.show {
+    display: flex;
+}
+
+#fullscreen img {
+    height: 80vh;
+    border: 1px solid var(--text);
+    border-radius: 5vh;
+    cursor: grab;
+    user-select: none;
+    touch-action: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+
+header {
+    /* display: flex; */
+    /* justify-content: center; */
+    padding: 20px 0 10px;
+    /* flex-direction: column; */
+    /* align-items: center; */
+    gap: 10px;
+}
+
+.brand {
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    gap: 10px;
+    flex-direction: column;
+}
+
+.img {
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
+}
+
+.img img {
+    width: 100px;
+}
+
+.titles {
+    /* display: flex; */
+    /* justify-content: center; */
+    /* flex-direction: column; */
+    /* gap: 10px; */
+}
+
+.subtitle {
+    /* font-family: "TTNorms"; */
+    /* color: var(--header); */
+    font-size: 20px;
+    text-align: center;
+}
+
+.title {
+    /* font-family: "games"; */
+    /* color: var(--header); */
+    font-size: 40px;
+    text-align: center;
+}
+
+.global-percent {
+    /* font-family: "games"; */
+    /* color: var(--header); */
+    font-size: 40px;
+}
+
+.buttons {
+    /* display: flex; */
+    gap: 10px;
+}
+
+.btn {
+    /* color: var(--textalt); */
+    font-size: 26px;
+    /* font-family: "games"; */
+    /* background: transparent; */
+    /* border: none; */
+    /* cursor: pointer; */
+}
+
+.btn:hover {
+    /* color: var(--text); */
+}
+
+.btn.active {
+    /* color: var(--text); */
+    /* text-decoration: underline; */
+}
+
+main {
+    padding: 10px 5px 20px;
+}
+
+.page {
+    /* display: none; */
+    gap: 5px;
+    /* align-items: flex-start; */
+    /* flex-wrap: wrap; */
+}
+
+.page.active {
+    /* display: flex; */
+}
+
+.column {
+    /* display: flex; */
+    /* flex-direction: column; */
+    gap: 5px;
+    /* flex: 1; */
+}
+
+.card {
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* border: 1px solid var(--textalt); */
+    /* border-radius: 5vh; */
+    padding: 5px;
+    /* overflow: hidden; */
+}
+
+.card-title,
+.card-percent {
+    /* text-align: center; */
+    /* font-family: "title"; */
+    font-size: 26px;
+    /* color: var(--text); */
+    /* white-space: nowrap; */
+    /* cursor: pointer; */
+}
+
+.card-table {
+    /* display: flex; */
+    /* flex-direction: column; */
+    gap: 5px;
+    padding: 5px;
+}
+
+.card-table.hidden {
+    /* display: none; */
+}
+
+.item {
+    /* display: flex; */
+    /* flex-direction: column; */
+    gap: 5px;
+}
+
+.item-title {
+    /* font-family: "subtitle"; */
+    font-size: 18px;
+    /* padding-left: 20px; */
+    /* color: var(--textalt); */
+}
+
+.item-list {
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* gap: 5px; */
+}
+
+.item-content {
+    /* display: grid; */
+    /* grid-template-columns: 30px 30px 1fr 1fr; */
+    /* align-items: center; */
+    /* padding: 0 5px; */
+    /* min-height: 40px; */
+    /* background: var(--rows); */
+    /* border-radius: 2vh; */
+    /* gap: 5px; */
+}
+
+.item-content:hover {
+    /* background: var(--text); */
+}
+
+.item-content:hover .item-text,
+.item-content:hover .item-subtext,
+.item-content:hover .number {
+    /* color: var(--texthover); */
+}
+
+.checkbox {
+    /* width: 20px; */
+    /* height: 20px; */
+    /* border: 2px solid var(--text); */
+    /* border-radius: 5px; */
+    /* cursor: pointer; */
+    /* position: relative; */
+    /* justify-self: center; */
+    /* background: var(--rows); */
+}
+
+.checkbox.checked::after {
+    /* content: ''; */
+    /* position: absolute; */
+    /* left: 5px; */
+    /* top: 0px; */
+    /* width: 10px; */
+    /* height: 16px; */
+    /* border: solid var(--texthover); */
+    /* border-width: 0 4px 4px 0; */
+    /* transform: rotate(45deg); */
+}
+
+.checkbox.checked {
+    /* border: none; */
+    /* background: var(--text); */
+}
+
+.item.one:has(.checkbox.checked) .checkbox:not(.checked) {
+    /* visibility: hidden; */
+}
+
+.item-icon {
+    /* width: 30px; */
+    /* justify-self: center; */
+}
+
+.checkbox.checked~.item-icon,
+.item.one:has(.checkbox.checked) .item-content .item-icon {
+    /* opacity: 0.5; */
+    /* width: 20px; */
+}
+
+.item-text {
+    color: var(--text);
+    font-size: 16px;
+}
+
+.checkbox.checked~.item-text,
+.item.one:has(.checkbox.checked) .item-content .item-text {
+    /* text-decoration: line-through; */
+    /* color: var(--textalt); */
+    font-size: 14px;
+    /* opacity: 0.5; */
+}
+
+.item-content:hover:has(.checkbox.checked) .item-text {
+    /* color: var(--texthover); */
+}
+
+.item-subtext {
+    /* color: var(--text); */
+    /* text-align: center; */
+    font-size: 14px;
+}
+
+.checkbox.checked~.item-subtext,
+.item.one:has(.checkbox.checked) .item-content .item-subtext {
+    /* text-decoration: line-through; */
+    /* color: var(--textalt); */
+    font-size: 10px;
+    /* opacity: 0.5; */
+}
+
+.item-content:hover:has(.checkbox.checked) .item-subtext {
+    /* color: var(--texthover); */
+}
+
+.number {
+    /* font-family: "TTNorms"; */
+    /* color: var(--text); */
+    /* font-size: 30px; */
+    /* justify-self: center; */
+}
+
+.checkbox.checked~.number {
+    /* text-decoration: line-through; */
+    /* color: var(--textalt); */
+    /* font-size: 20px; */
+    /* opacity: 0.5; */
+}
+
+.item-content:hover:has(.checkbox.checked) .number {
+    color: var(--texthover);
+}
+
+.imgs {
+    /* display: flex; */
+    gap: 5px;
+    /* justify-self: center; */
+    /* padding: 5px 0; */
+    flex-direction: column;
+}
+
+.checkbox.checked~.imgs {
+    /* display: none; */
+}
+
+.item-img {
+    /* height: 50px; */
+    /* width: 90px; */
+    /* border: 1px solid var(--text); */
+    /* cursor: pointer; */
+    /* border-radius: 5px; */
+    /* overflow: hidden; */
+    /* display: inline-block; */
+    /* position: relative; */
+}
+
+#fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.9);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+#fullscreen.show {
+    display: flex;
+}
+
+#fullscreen img {
+    width: 50vh;
+    height: auto;
+    /* border: 1px solid var(--text); */
+    /* border-radius: 5vh; */
+    /* cursor: grab; */
+    /* user-select: none; */
+    /* touch-action: none; */
+}
+
+.page2-content .item-subtext {
+    display: none;
+}
+}
