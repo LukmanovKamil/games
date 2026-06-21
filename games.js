@@ -17,7 +17,7 @@ const firebaseConfig = {
     appId: "1:483790839435:web:654bdc8da918a1d827fe8e"
   };
 
-const app = initializeApp(firebaseConfig);
+const ap = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 
 const basePath = "checkboxes";
